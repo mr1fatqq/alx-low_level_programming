@@ -1,28 +1,26 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * leet - Entry point
- * ONE if, TWO loops only...
- * @n: input
- * Return: Always 0 (Success)
+ * leet - encode
+ * @s: pointer to char params
+ * Return: *s
  */
-char *leet(char *n)
-{
-	int i, x;
-	int find[] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
-	int replacer[] = {'4', '3', '0', '7', '1'};
 
-	for (i = 0; n[i] != '\0'; i++)
+char *leet(char *s)
+{
+	int i;
+	int j;
+	char l[] = "ol_ea__t";
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (x = 0; x <= 9; x++)
+		for (j = 0; l[j] != '\0'; j++)
 		{
-			if (n[i] == find[x])
+			if (s[i] == l[j] || s[i] == (l[j] - 32))
 			{
-				n[i] = replacer[x / 2];
-				x = 9;
+				s[i] = j + '0';
 			}
 		}
 	}
-
-	return (n);
+	return (s);
 }
