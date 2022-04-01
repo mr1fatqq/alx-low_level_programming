@@ -1,0 +1,1 @@
+C static and shared (dynamic) libraries
